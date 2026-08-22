@@ -1,2 +1,2 @@
 # https-hashimotoseikotuin-HP-sample
-なんとなく出来てきたので共有
+8/22 ヒアリングを受けて徐々に改変している。
