@@ -242,7 +242,9 @@
   .course-col-head { padding: 22px 18px 18px; text-align: center; color: #fff; }
   .course-col-head .tag { display: inline-block; font-size: .72rem; letter-spacing: 2px; background: rgba(255,255,255,.22); padding: 2px 12px; border-radius: 20px; margin-bottom: 6px; }
   .course-col-head h3 { font-size: 1.25rem; line-height: 1.4; }
-  .course-col-head p { font-size: .85rem; opacity: .92; margin-top: 4px; }
+  .course-col-head p { font-size: .85rem; opacity: .92; margin-top: 4px; line-height: 1.6; }
+  .course-cols { align-items: stretch; }
+  @media (min-width: 1001px) { .course-col-head { min-height: 124px; display: flex; flex-direction: column; justify-content: center; } }
   .course-col.basic .course-col-head { background: linear-gradient(135deg, var(--basic-dark), var(--basic)); }
   .course-col.acute .course-col-head { background: linear-gradient(135deg, var(--acute), #ff8a50); }
   .course-col.intensive .course-col-head { background: linear-gradient(135deg, var(--main-dark), var(--main)); }
@@ -627,7 +629,7 @@
         <div class="course-col-head">
           <span class="tag">ACUTE</span>
           <h3>急性治療コース</h3>
-          <p>急な痛み・ケガを、できるだけ早く落ち着かせる</p>
+          <p>急な痛み・ケガを、早めに落ち着かせる</p>
         </div>
         <div class="course-col-body">
           <h4>こんな症状に</h4>
