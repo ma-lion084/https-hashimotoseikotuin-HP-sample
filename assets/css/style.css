@@ -31,6 +31,10 @@
   --color-acute-light:    #ff8a50;
   --color-acute-dark:     #bf360c;
   --color-acute-bg:       #fff4ec;
+  --color-acute-border:   rgba(230, 81, 0, .18);
+  --color-kids:           #7e57c2;   /* 小中学生コース：やさしいパープル */
+  --color-kids-dark:      #5e35b1;
+  --color-kids-bg:        #f3eefa;
 
   /* --- Neutral --- */
   --color-text:           #2f3a45;
@@ -94,7 +98,7 @@
   --container-pad:        20px;
   --header-h:             64px;
   --fixed-cta-h:          64px;
-  --course-head-min-h:    124px;
+  --course-head-min-h:    172px;   /* 3列表示でタイトルが2行になるカードに合わせる */
 
   /* --- Motion --- */
   --dur-fast:             .2s;
@@ -226,6 +230,9 @@ th { font-weight: inherit; }
 }
 .btn--ghost:hover { background: var(--color-bg-tint); }
 
+.btn--acute { background: var(--color-acute); color: var(--color-white); }
+.btn--acute:hover { background: var(--color-acute-dark); }
+
 .btn-group {
   display: flex; flex-wrap: wrap; justify-content: center;
   gap: 16px;
@@ -289,6 +296,8 @@ th { font-weight: inherit; }
   font-size: 1.02rem;
   margin-bottom: 10px;
 }
+.note-box--kids { background: var(--color-kids-bg); }
+.note-box--kids .note-box__title { color: var(--color-kids-dark); }
 
 /* --- Table wrapper（横スクロール対応） --- */
 .table-scroll { overflow-x: auto; }
@@ -389,6 +398,37 @@ th { font-weight: inherit; }
 }
 .hero__badges { margin-bottom: var(--space-5); }
 
+/* --- 5.2b Insurance banner（交通事故・労災保険の告知帯） --- */
+.insurance-banner {
+  padding: var(--space-4) 0;
+  background: var(--color-acute-bg);
+  border-top: 1px solid var(--color-acute-border);
+  border-bottom: 1px solid var(--color-acute-border);
+}
+.insurance-banner__inner {
+  display: flex; align-items: center;
+  gap: var(--space-3);
+}
+.insurance-banner__icon {
+  flex-shrink: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--color-acute); color: var(--color-white);
+  font-size: 1.4rem;
+}
+.insurance-banner__icon .icon { margin-right: 0; vertical-align: 0; }
+.insurance-banner__text { flex: 1; min-width: 0; }
+.insurance-banner__title {
+  font-size: var(--fs-lg); font-weight: bold; line-height: var(--lh-tight);
+  color: var(--color-acute-dark);
+}
+.insurance-banner__lead { font-size: var(--fs-base); }
+.insurance-banner__tel {
+  flex-shrink: 0;
+  padding: 12px 28px;
+  white-space: nowrap;
+}
+
 /* --- 5.3 Worries --- */
 .worry-list { max-width: 640px; margin: 0 auto; }
 .worry-list__item {
@@ -428,7 +468,7 @@ th { font-weight: inherit; }
 
 /* --- 5.5 Courses --- */
 .course-grid {
-  display: grid; grid-template-columns: repeat(2, 1fr);
+  display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 22px; align-items: stretch;
 }
 .course-card {
@@ -490,12 +530,52 @@ th { font-weight: inherit; }
   --course-chip-color: var(--color-acute-dark);
   --course-accent:     var(--color-acute);
 }
+.course-card--kids {
+  --course-gradient:   linear-gradient(135deg, var(--color-kids-dark), var(--color-kids));
+  --course-chip-bg:    var(--color-kids-bg);
+  --course-chip-color: var(--color-kids-dark);
+  --course-accent:     var(--color-kids);
+}
 
 .course-guide {
   max-width: 720px; margin: var(--space-5) auto 0;
   text-align: center;
 }
 .course-guide p + p { margin-top: var(--space-1); }
+
+/* 小中学生コースの「できること・できないこと」 */
+.course-scope { margin-top: var(--space-5); }
+.course-scope__lead { margin-bottom: var(--space-3); }
+.course-scope__grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+.course-scope__col {
+  padding: var(--space-3);
+  background: var(--color-white);
+  border-radius: var(--radius-sm);
+}
+.course-scope__heading {
+  margin-bottom: 8px;
+  font-size: var(--fs-md); line-height: var(--lh-tight);
+  color: var(--color-kids-dark);
+}
+.course-scope__item {
+  position: relative;
+  padding: 4px 0 4px 24px;
+  line-height: 1.7;
+}
+.course-scope__item::before {
+  position: absolute; left: 2px;
+  font-weight: bold;
+}
+.course-scope__list--can    .course-scope__item::before { content: "✔"; color: var(--color-kids); }
+.course-scope__list--cannot .course-scope__item::before { content: "✕"; color: var(--color-text-muted); }
+.course-scope__note {
+  margin-top: var(--space-3);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
 
 /* --- 5.6 Flow --- */
 .flow-list { max-width: var(--container-w-narrow); margin: 0 auto; }
@@ -543,6 +623,7 @@ th { font-weight: inherit; }
 .price-table__cat { font-weight: bold; background: var(--gradient-tint); color: var(--color-primary-dark); }
 .price-table__cat--basic { background: var(--color-basic-bg); color: var(--color-basic-dark); }
 .price-table__cat--acute { background: var(--color-acute-bg); color: var(--color-acute-dark); }
+.price-table__cat--kids  { background: var(--color-kids-bg);  color: var(--color-kids-dark); }
 
 .price-example {
   max-width: var(--container-w-narrow); margin: 0 auto;
@@ -752,12 +833,16 @@ th { font-weight: inherit; }
    7. Responsive
    ============================================================================ */
 
-/* --- Desktop only: コースのヘッダー高さを揃える --- */
-@media (min-width: 1001px) {
+/* --- Desktop / Tablet（コースが3列のとき）: コースのヘッダー高さを揃える --- */
+@media (min-width: 821px) {
   .course-card__head {
     min-height: var(--course-head-min-h);
     display: flex; flex-direction: column; justify-content: center;
   }
+}
+/* タブレット幅はカードが細くなりタグラインの行数が増えるため、揃える高さを上げる */
+@media (min-width: 821px) and (max-width: 1000px) {
+  :root { --course-head-min-h: 196px; }
 }
 
 /* --- Desktop / Tablet: 追従バー非表示 --- */
@@ -796,7 +881,11 @@ th { font-weight: inherit; }
   .reason-grid,
   .voice-grid,
   .course-grid,
+  .course-scope__grid,
   .access-grid { grid-template-columns: 1fr; }
+
+  .insurance-banner__inner { flex-direction: column; text-align: center; }
+  .insurance-banner__text { width: 100%; }
 
   .doctor { flex-direction: column; text-align: center; }
   .doctor__body { text-align: left; }

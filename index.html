@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0d47a1">
 <title>はしもと整骨院｜肩こり・腰痛・急なケガ｜札幌・夜20時まで</title>
-<meta name="description" content="捻挫・打撲・ぎっくり腰などのケガから、つらい肩こり・腰痛まで。札幌のはしもと整骨院は予約不要・平日20時まで受付。ケガ向けの基本コース（保険適用の場合あり）と、自費の集中施術コースをご用意。TEL:011-886-2300">
+<meta name="description" content="捻挫・打撲・ぎっくり腰などのケガから、つらい肩こり・腰痛まで。札幌のはしもと整骨院は予約不要・平日20時まで受付。交通事故（自賠責保険）・労災保険にも対応。ケガ向けの基本コース（保険適用の場合あり）、自費の集中施術コース、小中学生の心身サポートコースをご用意。TEL:011-886-2300">
 
 <!-- TODO(公開前): 公開URL・OGP画像・favicon に差し替え -->
 <link rel="canonical" href="https://example.com/">
@@ -48,6 +48,7 @@
 <svg class="u-visually-hidden" aria-hidden="true" focusable="false">
   <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></symbol>
 </svg>
 
 <!-- =========================================================================
@@ -88,16 +89,30 @@
 <section class="hero" id="top">
   <p class="hero__eyebrow">札幌の整骨院｜国家資格者が施術</p>
   <h1 class="hero__title">つらい肩こり・腰痛も、<br>急なケガも、<strong>原因から</strong>整える整骨院</h1>
-  <p class="hero__lead">捻挫・打撲・ぎっくり腰などのケガ・急な痛みには「基本コース」。<br>長引く不調には「集中施術コース（自費）」。</p>
+  <p class="hero__lead">捻挫・打撲・ぎっくり腰などのケガ・急な痛みには「基本コース」。<br>長引く不調には「集中施術コース（自費）」。<br>小中学生のお子さんには「心身サポートコース（自費）」もご用意しています。</p>
   <ul class="badge-list hero__badges">
     <li class="badge">国家資格者が<br>施術</li>
     <li class="badge">夜20時まで<br>受付</li>
     <li class="badge">予約不要<br>そのまま来院OK</li>
-    <li class="badge">ケガの施術は<br>保険適用の場合あり</li>
+    <li class="badge">交通事故・<br>労災保険対応</li>
   </ul>
   <div class="btn-group">
     <a href="tel:0118862300" class="btn btn--primary"><svg class="icon"><use href="#i-tel"/></svg>011-886-2300<small>タップで発信できます</small></a>
-    <a href="#course" class="btn btn--ghost">2つの施術コースを見る<small>あなたに合うコースはどっち？</small></a>
+    <a href="#course" class="btn btn--ghost">3つの施術コースを見る<small>あなたに合うコースはどれ？</small></a>
+  </div>
+</section>
+
+<!-- =========================================================================
+     1.5 Insurance banner（交通事故・労災保険の告知）
+     ========================================================================= -->
+<section class="insurance-banner" aria-label="交通事故・労災保険のご案内">
+  <div class="container insurance-banner__inner">
+    <span class="insurance-banner__icon" aria-hidden="true"><svg class="icon"><use href="#i-info"/></svg></span>
+    <div class="insurance-banner__text prose">
+      <p class="insurance-banner__title">交通事故（自賠責保険）・労災保険に対応しています</p>
+      <p class="insurance-banner__lead">自己負担0円になる場合があります。まずはお電話でご相談ください。</p>
+    </div>
+    <a href="tel:0118862300" class="btn btn--acute insurance-banner__tel"><svg class="icon"><use href="#i-tel"/></svg>011-886-2300<small>タップで発信できます</small></a>
   </div>
 </section>
 
@@ -158,9 +173,10 @@
 
       <article class="card card--hover reason-card">
         <span class="circle-num reason-card__num" aria-hidden="true">4</span>
-        <h3 class="reason-card__title">症状に合わせた<br>2つの施術コース</h3>
+        <h3 class="reason-card__title">症状に合わせた<br>3つの施術コース</h3>
         <div class="reason-card__body prose">
           <p>ケガ・急な痛みには「基本コース」。慢性的な不調には「集中施術コース（自費）」。</p>
+          <p>小中学生のお子さんの体の不調には「心身サポートコース（自費）」。</p>
           <p>状態に合った通い方をご提案します。</p>
         </div>
       </article>
@@ -176,7 +192,7 @@
      ========================================================================= -->
 <section class="section section--white" id="course">
   <div class="container">
-    <h2 class="section__title">2つの施術コース</h2>
+    <h2 class="section__title">3つの施術コース</h2>
     <p class="section__sub">Course</p>
     <div class="course-grid">
 
@@ -238,6 +254,65 @@
         </div>
       </article>
 
+      <article class="card course-card course-card--kids">
+        <header class="course-card__head">
+          <span class="course-card__tag">KIDS</span>
+          <h3 class="course-card__title">小中学生の<br class="u-pc-only">心身サポートコース</h3>
+          <p class="course-card__tagline">体を上手く使える状態に整え、学校や日常生活を送りやすくするサポート（自費）</p>
+        </header>
+        <div class="course-card__body">
+          <h4 class="course-card__label">こんなお子さんに</h4>
+          <ul class="course-card__chips">
+            <li class="course-card__chip">体がこわばる・力が抜けない</li>
+            <li class="course-card__chip">頭痛・肩こり</li>
+            <li class="course-card__chip">朝起きられない・だるい</li>
+            <li class="course-card__chip">眠りが浅い</li>
+            <li class="course-card__chip">疲れやすい</li>
+            <li class="course-card__chip">心療内科・小児科に通院中</li>
+          </ul>
+          <h4 class="course-card__label">施術内容（約20分）</h4>
+          <ul class="course-card__points">
+            <li class="check-list__item">電気療法（10分）</li>
+            <li class="check-list__item">手技療法（10分）</li>
+            <li class="check-list__item">お子さんの状態に合わせた、痛みのない優しい施術</li>
+            <li class="check-list__item">保護者の方の同席OK。初回は保護者の方からもお話を伺います</li>
+          </ul>
+          <h4 class="course-card__label">料金・通院の目安</h4>
+          <!-- TODO(要確認): 2,500円が「一律」か「基本コース料金＋2,500円」かを院長に確認。現在は一律 2,500円で仮組み -->
+          <p>1回 2,500円（自費・保険適用外）</p>
+          <p>通院のペースは、お子さんの状態や生活リズムに合わせてご相談しながら決めていきます。</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="note-box note-box--kids course-scope">
+      <p class="note-box__title">小中学生の心身サポートコースで「できること・できないこと」</p>
+      <div class="course-scope__lead prose">
+        <p>このコースは、心の不調そのものを治すためのコースではありません。</p>
+        <p>体を上手く使える状態に整え、学校生活・日常生活を送りやすくするための、体の面からのサポートです。</p>
+      </div>
+      <div class="course-scope__grid">
+        <div class="course-scope__col">
+          <h4 class="course-scope__heading">このコースでできること</h4>
+          <ul class="course-scope__list course-scope__list--can">
+            <li class="course-scope__item">施術で体の緊張をゆるめ、体を上手く使える状態に整えること</li>
+            <li class="course-scope__item">頭痛・肩こり・だるさなど、体に出ている症状をケアすること</li>
+            <li class="course-scope__item">学校生活・日常生活を、体の面から送りやすくすること</li>
+          </ul>
+        </div>
+        <div class="course-scope__col">
+          <h4 class="course-scope__heading">このコースでできないこと</h4>
+          <ul class="course-scope__list course-scope__list--cannot">
+            <li class="course-scope__item">適応障害など、心の不調そのものを治療すること（診断・治療は医療機関で行うものです）</li>
+            <li class="course-scope__item">医療機関の通院に代わること（通院中の方は、治療と併用してご利用ください）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="course-scope__note prose">
+        <p>体の状態が整うことで生活が楽になるお子さんは多くいらっしゃいますが、心の不調自体の改善をお約束するものではありません。</p>
+        <p>症状によっては医療機関の受診をおすすめする場合があります。</p>
+      </div>
     </div>
 
     <div class="note-box course-guide">
@@ -271,7 +346,7 @@
         <div class="flow-step__body prose">
           <h3 class="flow-step__title">カウンセリング・施術</h3>
           <p>お悩みの症状や生活習慣をお伺いしながら、手で身体の状態を確かめ、そのまま施術に入ります。</p>
-          <p>施術中に「なぜ痛むのか」「どこが原因なのか」をその場でわかりやすくご説明し、2つの施術コースのうちどちらが合うかをご提案します。</p>
+          <p>施術中に「なぜ痛むのか」「どこが原因なのか」をその場でわかりやすくご説明し、3つの施術コースのうちどれが合うかをご提案します。</p>
           <p>バキバキしない優しい施術なので、ご安心ください。</p>
         </div>
       </li>
@@ -307,6 +382,13 @@
           <tr><th class="price-table__cat" colspan="2">集中施術コース（全額自費・保険適用外）</th></tr>
           <tr><th>電気療法＋手技療法（約35分）</th><td>3,500円</td></tr>
           <tr><th>電気療法＋手技療法＋骨格・姿勢矯正</th><td>4,000円</td></tr>
+
+          <!-- TODO(要確認): 2,500円が「一律」か「基本コース料金＋2,500円」かを院長に確認 -->
+          <tr><th class="price-table__cat price-table__cat--kids" colspan="2">小中学生の心身サポートコース（自費・保険適用外）</th></tr>
+          <tr><th>電気療法10分＋手技療法10分</th><td>2,500円</td></tr>
+
+          <tr><th class="price-table__cat price-table__cat--acute" colspan="2">交通事故（自賠責保険）／労災保険</th></tr>
+          <tr><th>自己負担 <span class="price-table__sub">自賠責保険・労災保険が適用される場合（要相談）</span></th><td>0円になる場合あり</td></tr>
         </tbody>
       </table>
     </div>
@@ -316,6 +398,8 @@
       <li>※基本コースの料金は、捻挫・打撲などのケガで健康保険が使える場合の3割負担の目安です。負担割合により変動します。</li>
       <li>※慢性的な肩こり・腰痛、姿勢の崩れなどは健康保険の対象外です。</li>
       <li>※集中施術コースは全額自費（保険適用外）で、表示は総額です。</li>
+      <li>※小中学生の心身サポートコースは自費（保険適用外）です。</li>
+      <li>※交通事故（自賠責保険）・労災保険の適用には手続きが必要です。適用の可否や自己負担の有無は状況により異なりますので、まずはお電話でご相談ください。</li>
       <li>※初回から1ヶ月以上あいた場合は、再度初回料金となります。</li>
       <li>※回数券の販売はしておりません。</li>
     </ul>
@@ -437,6 +521,16 @@
     </div>
 
     <div class="faq-item" data-faq-item>
+      <h3><button class="faq-item__q" type="button" aria-expanded="false" aria-controls="faq-a7" data-faq-toggle>交通事故や仕事中のケガでも通えますか？</button></h3>
+      <div class="faq-item__a" id="faq-a7"><div><div class="faq-item__a-inner prose">
+        <p>はい、通えます。</p>
+        <p>交通事故によるケガは自賠責保険、仕事中・通勤中のケガは労災保険が適用され、自己負担なく通院できる場合があります。</p>
+        <p>保険会社とのやりとりや手続きで分からないことがあれば、ご相談に乗りますのでご安心ください。</p>
+        <p>事故やケガの状況によって必要な手続きが異なりますので、まずはお電話（011-886-2300）でご相談ください。</p>
+      </div></div></div>
+    </div>
+
+    <div class="faq-item" data-faq-item>
       <h3><button class="faq-item__q" type="button" aria-expanded="false" aria-controls="faq-a4" data-faq-toggle>予約は必要ですか？</button></h3>
       <div class="faq-item__a" id="faq-a4"><div><div class="faq-item__a-inner prose">
         <p>ご予約は不要です。受付時間内にそのままお越しください。</p>
@@ -453,11 +547,23 @@
     </div>
 
     <div class="faq-item" data-faq-item>
-      <h3><button class="faq-item__q" type="button" aria-expanded="false" aria-controls="faq-a6" data-faq-toggle>2つのコース、どちらを選べばいいですか？</button></h3>
+      <h3><button class="faq-item__q" type="button" aria-expanded="false" aria-controls="faq-a6" data-faq-toggle>3つのコース、どれを選べばいいですか？</button></h3>
       <div class="faq-item__a" id="faq-a6"><div><div class="faq-item__a-inner prose">
         <p>「数日前にひねった」「朝起きたら急に痛い」など、ケガやはっきりしたきっかけのある痛み → <b>基本コース</b></p>
         <p>「何年も肩こりが続いている」「マッサージをしてもすぐ戻る」といった慢性的な不調 → <b>集中施術コース（自費）</b></p>
+        <p>小中学生のお子さんの、体のこわばり・だるさ・頭痛など心身の不調からくる体の症状 → <b>小中学生の心身サポートコース（自費）</b></p>
         <p>迷われる場合は、初回の施術の中でご相談に乗りますので、ご安心ください。</p>
+      </div></div></div>
+    </div>
+
+    <div class="faq-item" data-faq-item>
+      <h3><button class="faq-item__q" type="button" aria-expanded="false" aria-controls="faq-a8" data-faq-toggle>子どもの心の不調にも対応できますか？</button></h3>
+      <div class="faq-item__a" id="faq-a8"><div><div class="faq-item__a-inner prose">
+        <p>心の不調そのものの診断・治療は、心療内科や小児科などの医療機関で行うものであり、当院で行うことはできません。</p>
+        <p>当院の「小中学生の心身サポートコース」は、心の不調があるお子さんに起こりやすい「体がこわばる」「力の入れ方が分からない」「疲れやすい」といった、体を上手く使えない状態を施術で整えるためのコースです。</p>
+        <p>体の状態を整えることで、学校生活や日常生活を送りやすくすることを目指します。</p>
+        <p>心療内科・小児科などに通院中・経過観察中のお子さんも、医療機関での治療と併用する形でご利用いただけます。</p>
+        <p>保護者の方の同席も可能ですので、まずはお気軽にご相談ください。</p>
       </div></div></div>
     </div>
   </div>

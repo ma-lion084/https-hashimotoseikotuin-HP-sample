@@ -23,7 +23,7 @@ site/
 | コースの色を変える | `style.css` 「5.5 Courses」の `.course-card--*` 内の変数 |
 | コースを追加する | `index.html` の `course-card` を複製 → `course-card--新名前` を付け、`style.css` 5.5 に色変数を追加。`.course-grid` の `repeat(3, 1fr)` を列数に合わせる |
 | FAQ を追加する | `faq-item` を複製し、`aria-controls` と `id` を一意にする |
-| 電話番号を変える | `index.html` を `0118862300` / `011-886-2300` で全文検索して置換（9箇所） |
+| 電話番号を変える | `index.html` を `0118862300` / `011-886-2300` で全文検索して置換（11箇所） |
 | 受付時間を変える | `index.html` を `9:00` で全文検索（表・フッター・CTA・構造化データ） |
 | スマホのブレークポイント | `style.css` 「7. Responsive」の `820px` |
 
