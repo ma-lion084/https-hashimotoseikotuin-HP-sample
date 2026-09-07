@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0d47a1">
+<meta name="theme-color" content="#0d47a1"><!-- style.css の --color-primary-dark と同じ値にする -->
 <title>はしもと整骨院｜肩こり・腰痛・急なケガ｜札幌・夜20時まで</title>
 <meta name="description" content="捻挫・打撲・ぎっくり腰などのケガから、つらい肩こり・腰痛まで。札幌のはしもと整骨院は予約不要・平日20時まで受付。交通事故（自賠責保険）・労災保険にも対応。ケガ向けの基本コース（保険適用の場合あり）、自費の集中施術コース、小中学生の心身サポートコースをご用意。TEL:011-886-2300">
 
@@ -18,7 +18,9 @@
 
 <link rel="stylesheet" href="assets/css/style.css">
 
-<!-- 構造化データ  TODO(公開前): url / streetAddress を入力 -->
+<!-- 構造化データ  TODO(公開前): url を入力
+     ※ ここは画面に出ない「4つ目のコピー」。電話は +81 形式、時間は 09:00 のように2桁で書く。
+        電話・受付時間・住所を変えたら必ずここも直す（README「よくある編集」参照） -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -90,6 +92,7 @@
   <p class="hero__eyebrow">札幌の整骨院｜国家資格者が施術</p>
   <h1 class="hero__title">つらい肩こり・腰痛も、<br>急なケガも、<strong>原因から</strong>整える整骨院</h1>
   <p class="hero__lead">捻挫・打撲・ぎっくり腰などのケガ・急な痛みには「基本コース」。<br>長引く不調には「集中施術コース（自費）」。<br>小中学生のお子さんには「心身サポートコース（自費）」もご用意しています。</p>
+  <!-- バッジは固定サイズの円。文言は最大 2行×7文字まで（<br> で改行位置を指定） -->
   <ul class="badge-list hero__badges">
     <li class="badge">国家資格者が<br>施術</li>
     <li class="badge">夜20時まで<br>受付</li>
@@ -112,7 +115,7 @@
       <p class="insurance-banner__title">交通事故（自賠責保険）・労災保険に対応しています</p>
       <p class="insurance-banner__lead">自己負担0円になる場合があります。まずはお電話でご相談ください。</p>
     </div>
-    <a href="tel:0118862300" class="btn btn--acute insurance-banner__tel"><svg class="icon"><use href="#i-tel"/></svg>011-886-2300<small>タップで発信できます</small></a>
+    <a href="tel:0118862300" class="btn btn--accent-warm insurance-banner__tel"><svg class="icon"><use href="#i-tel"/></svg>011-886-2300<small>タップで発信できます</small></a>
   </div>
 </section>
 
@@ -157,8 +160,9 @@
         <span class="circle-num reason-card__num" aria-hidden="true">2</span>
         <h3 class="reason-card__title">夜20時まで営業<br>仕事帰りに通える</h3>
         <div class="reason-card__body prose">
-          <p>月〜金曜は夜20時まで受付しています（土曜は午前のみ）。</p>
+          <p>月〜金曜は夜20時まで受付しています。</p>
           <p>お仕事帰りやスキマ時間にも無理なく通えるので、忙しいデスクワーカーの方に選ばれています。</p>
+          <p>受付時間の詳細はアクセス欄をご覧ください。</p>
         </div>
       </article>
 
@@ -187,8 +191,9 @@
 
 <!-- =========================================================================
      4. Courses
-     ※ コースを追加する場合: course-card を複製し、modifier（--basic 等）を
-        新設して style.css の「5.5 Courses」に色変数を追加する。
+     ※ コースを追加する場合: README「コース追加チェックリスト」に従う。
+        カードの複製と色変数だけでなく、料金表・FAQ・コース数を書いた文言など
+        約10箇所に手が入る。
      ========================================================================= -->
 <section class="section section--white" id="course">
   <div class="container">
@@ -257,7 +262,7 @@
       <article class="card course-card course-card--kids">
         <header class="course-card__head">
           <span class="course-card__tag">KIDS</span>
-          <h3 class="course-card__title">小中学生の<br class="u-pc-only">心身サポートコース</h3>
+          <h3 class="course-card__title">小中学生の心身サポートコース</h3>
           <p class="course-card__tagline">体を上手く使える状態に整え、学校や日常生活を送りやすくするサポート（自費）</p>
         </header>
         <div class="course-card__body">
@@ -278,7 +283,7 @@
             <li class="check-list__item">保護者の方の同席OK。初回は保護者の方からもお話を伺います</li>
           </ul>
           <h4 class="course-card__label">料金・通院の目安</h4>
-          <!-- TODO(要確認): 2,500円が「一律」か「基本コース料金＋2,500円」かを院長に確認。現在は一律 2,500円で仮組み -->
+          <!-- TODO(要確認): 2,500円が「一律」か「基本コース料金＋2,500円」かを院長に確認。現在は一律 2,500円で仮組み。確定したら料金表（#price）も同時に直す -->
           <p>1回 2,500円（自費・保険適用外）</p>
           <p>通院のペースは、お子さんの状態や生活リズムに合わせてご相談しながら決めていきます。</p>
         </div>
@@ -383,11 +388,10 @@
           <tr><th>電気療法＋手技療法（約35分）</th><td>3,500円</td></tr>
           <tr><th>電気療法＋手技療法＋骨格・姿勢矯正</th><td>4,000円</td></tr>
 
-          <!-- TODO(要確認): 2,500円が「一律」か「基本コース料金＋2,500円」かを院長に確認 -->
           <tr><th class="price-table__cat price-table__cat--kids" colspan="2">小中学生の心身サポートコース（自費・保険適用外）</th></tr>
           <tr><th>電気療法10分＋手技療法10分</th><td>2,500円</td></tr>
 
-          <tr><th class="price-table__cat price-table__cat--acute" colspan="2">交通事故（自賠責保険）／労災保険</th></tr>
+          <tr><th class="price-table__cat price-table__cat--accent-warm" colspan="2">交通事故（自賠責保険）／労災保険</th></tr>
           <tr><th>自己負担 <span class="price-table__sub">自賠責保険・労災保険が適用される場合（要相談）</span></th><td>0円になる場合あり</td></tr>
         </tbody>
       </table>
@@ -439,7 +443,7 @@
         <div class="voice-card__stars" aria-label="5段階中5">★★★★★</div>
         <h3 class="voice-card__title">仕事帰りに通えるのが助かる</h3>
         <div class="voice-card__body prose">
-          <p>平日は20時まで受付しているので、残業がある日でも通えます。</p>
+          <p>平日は夜まで受付しているので、残業がある日でも通えます。</p>
           <p>予約がいらないので、思い立った日に寄れるのが続けやすいポイント。マッサージ通いをやめて集中施術コースに切り替えました。</p>
         </div>
         <p class="voice-card__who">30代男性・営業職</p>
@@ -488,7 +492,10 @@
 
 <!-- =========================================================================
      9. FAQ
-     ※ 質問を追加する場合: faq-item を複製し、aria-controls と id を一意にする
+     ※ 質問を追加する場合: faq-item を複製し、aria-controls と id を「追加順の連番」にする
+        （表示順とは無関係。次は faq-a9）。
+     ※ 回答の <div class="faq-item__a"><div><div class="faq-item__a-inner"> の3重 div は
+        開閉アニメーション（grid-template-rows）に必要。真ん中の div を消さないこと。
      ========================================================================= -->
 <section class="section section--tint" id="faq">
   <div class="container">
@@ -623,7 +630,6 @@
             src="https://www.google.com/maps/embed?pb=!1m3!2m1!1z5YyX5rW36YGT5pyt5bmM5biC5riF55Sw5Yy6576O44GX44GM5LiY77yT5p2h77yS5LiB55uu77yRLe-8lQ!6i16!3m1!1sja!5m1!1sja"
             title="はしもと整骨院の地図（Googleマップ）"
             width="600" height="220"
-            style="border:0"
             allowfullscreen
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>

@@ -44,6 +44,7 @@
     });
 
     // PC幅に戻ったら開きっぱなしを解除
+    // 821px は style.css の @media (max-width: 820px) と対になる値。ブレークポイントを変えるときは両方直す
     const mq = window.matchMedia('(min-width: 821px)');
     mq.addEventListener('change', (e) => { if (e.matches) setOpen(false); });
   };
