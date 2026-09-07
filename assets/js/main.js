@@ -2,6 +2,7 @@
  * はしもと整骨院 LP – main.js
  *
  * 依存なし（Vanilla JS）。すべて DOM の data-* / aria-* を起点に動作する。
+ * 状態は is-* クラスと aria-* 属性だけで表現し、style を直接書き換えない。
  * 要素が存在しない場合は何もしない（他ページへの流用時にエラーにならない）。
  *
  * 機能:
@@ -29,7 +30,7 @@
       overlay.setAttribute('aria-hidden', String(!open));
       toggle.setAttribute('aria-expanded', String(open));
       toggle.setAttribute('aria-label', open ? LABEL_CLOSE : LABEL_OPEN);
-      document.body.style.overflow = open ? 'hidden' : '';
+      document.body.classList.toggle('is-nav-open', open);   // 背面のスクロール停止は CSS 側（body.is-nav-open）
     };
 
     const isOpen = () => nav.classList.contains('is-open');

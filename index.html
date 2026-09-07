@@ -86,7 +86,7 @@
 <main id="main">
 
 <!-- =========================================================================
-     1. Hero
+     Hero (#top)
      ========================================================================= -->
 <section class="hero" id="top">
   <p class="hero__eyebrow">札幌の整骨院｜国家資格者が施術</p>
@@ -106,7 +106,8 @@
 </section>
 
 <!-- =========================================================================
-     1.5 Insurance banner（交通事故・労災保険の告知）
+     Insurance banner（交通事故・労災保険の告知）
+     ※ .section ではなく独自の帯。ヒーローと本文の間に挟むため、余白の規則が違う
      ========================================================================= -->
 <section class="insurance-banner" aria-label="交通事故・労災保険のご案内">
   <div class="container insurance-banner__inner">
@@ -120,7 +121,7 @@
 </section>
 
 <!-- =========================================================================
-     2. Worries
+     Worries (#worries)
      ========================================================================= -->
 <section class="section section--white" id="worries">
   <div class="container">
@@ -139,7 +140,7 @@
 </section>
 
 <!-- =========================================================================
-     3. Reasons
+     Reasons (#reasons)
      ========================================================================= -->
 <section class="section section--tint" id="reasons">
   <div class="container">
@@ -190,7 +191,7 @@
 </section>
 
 <!-- =========================================================================
-     4. Courses
+     Courses (#course)
      ※ コースを追加する場合: README「コース追加チェックリスト」に従う。
         カードの複製と色変数だけでなく、料金表・FAQ・コース数を書いた文言など
         約10箇所に手が入る。
@@ -219,8 +220,8 @@
           </ul>
           <h4 class="course-card__label">施術内容（約20分）</h4>
           <ul class="course-card__points">
-            <li class="check-list__item">電気療法（10分）</li>
-            <li class="check-list__item">手技療法（10分）</li>
+            <li class="course-card__point">電気療法（10分）</li>
+            <li class="course-card__point">手技療法（10分）</li>
           </ul>
           <h4 class="course-card__label">料金・通院の目安</h4>
           <p>ケガで保険が使える場合、初回1,500円（3割負担の目安）。</p>
@@ -247,9 +248,9 @@
           </ul>
           <h4 class="course-card__label">コースの内容</h4>
           <ul class="course-card__points">
-            <li class="check-list__item">電気療法＋手技療法に、骨格・姿勢矯正などの集中施術をプラス</li>
-            <li class="check-list__item">姿勢・骨格・筋肉の状態を手で確かめ、原因を特定</li>
-            <li class="check-list__item">通院計画のご提案と、自宅でできるセルフケア指導</li>
+            <li class="course-card__point">電気療法＋手技療法に、骨格・姿勢矯正などの集中施術をプラス</li>
+            <li class="course-card__point">姿勢・骨格・筋肉の状態を手で確かめ、原因を特定</li>
+            <li class="course-card__point">通院計画のご提案と、自宅でできるセルフケア指導</li>
           </ul>
           <h4 class="course-card__label">料金・通院の目安</h4>
           <p>電気療法＋手技療法（約35分）：3,500円</p>
@@ -277,10 +278,10 @@
           </ul>
           <h4 class="course-card__label">施術内容（約20分）</h4>
           <ul class="course-card__points">
-            <li class="check-list__item">電気療法（10分）</li>
-            <li class="check-list__item">手技療法（10分）</li>
-            <li class="check-list__item">お子さんの状態に合わせた、痛みのない優しい施術</li>
-            <li class="check-list__item">保護者の方の同席OK。初回は保護者の方からもお話を伺います</li>
+            <li class="course-card__point">電気療法（10分）</li>
+            <li class="course-card__point">手技療法（10分）</li>
+            <li class="course-card__point">お子さんの状態に合わせた、痛みのない優しい施術</li>
+            <li class="course-card__point">保護者の方の同席OK。初回は保護者の方からもお話を伺います</li>
           </ul>
           <h4 class="course-card__label">料金・通院の目安</h4>
           <!-- TODO(要確認): 2,500円が「一律」か「基本コース料金＋2,500円」かを院長に確認。現在は一律 2,500円で仮組み。確定したら料金表（#price）も同時に直す -->
@@ -329,7 +330,7 @@
 </section>
 
 <!-- =========================================================================
-     5. Flow
+     Flow (#flow)
      ========================================================================= -->
 <section class="section section--flat" id="flow">
   <div class="container">
@@ -370,7 +371,7 @@
 </section>
 
 <!-- =========================================================================
-     6. Price
+     Price (#price)
      ========================================================================= -->
 <section class="section section--white" id="price">
   <div class="container">
@@ -411,7 +412,7 @@
 </section>
 
 <!-- =========================================================================
-     7. Voices
+     Voices (#voice)
      ========================================================================= -->
 <section class="section section--tint" id="voice">
   <div class="container">
@@ -465,7 +466,7 @@
 </section>
 
 <!-- =========================================================================
-     8. Doctor
+     Doctor (#doctor)
      ========================================================================= -->
 <section class="section section--white" id="doctor">
   <div class="container">
@@ -491,7 +492,7 @@
 </section>
 
 <!-- =========================================================================
-     9. FAQ
+     FAQ (#faq)
      ※ 質問を追加する場合: faq-item を複製し、aria-controls と id を「追加順の連番」にする
         （表示順とは無関係。次は faq-a9）。
      ※ 回答の <div class="faq-item__a"><div><div class="faq-item__a-inner"> の3重 div は
@@ -577,7 +578,7 @@
 </section>
 
 <!-- =========================================================================
-     10. Access
+     Access (#access)
      ========================================================================= -->
 <section class="section section--white" id="access">
   <div class="container">
@@ -641,7 +642,7 @@
 </section>
 
 <!-- =========================================================================
-     11. Final CTA
+     Final CTA
      ========================================================================= -->
 <section class="section final-cta">
   <div class="container">

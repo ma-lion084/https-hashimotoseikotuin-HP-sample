@@ -29,18 +29,18 @@ site/
 | 料金 | 金額そのもの（例 `1,500円`） | 基本コース 3行、集中 2行、小中学生 2行 | 基本コースの金額は FAQ「保険は使えますか」にも書かれている |
 | コースの数 | `3つの` | 5行 | コース追加時は「4つの」に一括置換 |
 | コースを追加する | 下の「コース追加チェックリスト」 | — | |
-| コースの色 | `style.css` 5.5 の `.course-card--*` 内の4変数 | — | 色そのものは `:root` の `--color-basic*` `--color-kids*` |
+| コースの色 | `style.css`「Courses」の `.course-card--*` 内の4変数 | — | 色そのものは `:root` の `--color-basic*` `--color-kids*` |
 | FAQ を追加する | `faq-item` を複製し `aria-controls` と `id` を**追加順の連番**にする（次は `faq-a9`） | — | 表示順と id の順は無関係。回答の3重 `div` は開閉アニメーション用なので減らさない |
 | ブランド色 | `style.css` `:root` の `--color-primary*`、`--color-bg-*`、`--color-border`、`--shadow-card*`、`--shadow-cta`、および `index.html` の `theme-color` | — | 影・下線・暗幕は `--color-primary-glow / -overlay / -underline` |
-| スマホのブレークポイント | `style.css` の `@media` にある `821px` `820px`（2箇所）と `main.js` の `matchMedia('(min-width: 821px)')`（1箇所） | 3 | `.doctor` の `max-width: 820px` は無関係なので触らない |
+| スマホのブレークポイント | `style.css` の `@media (max-width: 820px)`（1箇所）と `main.js` の `matchMedia('(min-width: 821px)')`（1箇所） | 2 | 院長紹介の幅 `--container-w-doctor: 820px` は同じ数字だが無関係 |
 
 ### コース追加チェックリスト
 
 1. `index.html` の `course-card` を複製し、`course-card--新名前` を付ける
 2. `style.css` `:root` の「Course colors」に `--color-新名前`、`-dark`、`-bg` を追加
-3. `style.css` 5.5 に `.course-card--新名前 { 4変数 }` を追加（既存の `--kids` をコピー）
+3. `style.css`「Courses」に `.course-card--新名前 { 4変数 }` を追加（既存の `--kids` をコピー）
 4. `.course-grid` の `repeat(3, 1fr)` を列数に合わせる（スマホは自動で1列）
-5. 料金表に区分行（`price-table__cat--新名前` と CSS 5.7 の色）と料金行を追加。注意書きも見直す
+5. 料金表に区分行（`price-table__cat--新名前` と CSS「Price」の色）と料金行を追加。注意書きも見直す
 6. FAQ「どれを選べばいいですか？」に1行追加
 7. `3つの` を一括置換（5行）
 8. ヒーローのリード文、理由カード4、流れ STEP2、meta description を更新
@@ -58,7 +58,8 @@ site/
 
 ## 命名規則
 
-- **CSS**: BEM（`block__element--modifier`）。状態は `is-open` / `is-visible`。汎用クラスは `u-` 接頭辞
+- **CSS**: BEM（`block__element--modifier`）。状態は `is-open` / `is-visible` / `is-nav-open`（body）。汎用クラスは `u-` 接頭辞
+- **CSS の幅**: 最大幅の生値は書かず `:root` の `--container-w-*` を使う。同じ数字でもブレークポイントとは別物
 - **CSS の色**: 生の色コードは `:root` のトークン定義にだけ書く。部品側は必ず `var(--color-*)`
 - **JS**: DOM のフックは `data-*` 属性（`data-nav`, `data-faq-item` など）。クラス名に依存しないので、見た目のクラスを変えても JS は壊れない
 
@@ -79,7 +80,7 @@ site/
 ## 対応環境
 
 - モダンブラウザ（Chrome / Safari / Edge / Firefox の最新2バージョン）
-- iOS Safari 16+ / Android Chrome。コースカードのヘッダー揃えに `subgrid`、タイトルの折り返しに `text-wrap: balance` を使用。非対応環境では「揃わない／通常の折り返し」になるだけで崩れない
+- iOS Safari 16+ / Android Chrome を想定。新しめの機能と非対応時の挙動：`subgrid`（コースのヘッダー高さが揃わない）、`text-wrap: balance`（通常の折り返し）、`grid-template-rows` のアニメーション（FAQ が即時に開閉）、`dvh`（`vh` を併記済み）、`inset`／`:focus-visible`／`MediaQueryList.addEventListener`（iOS 14〜15.4 以上）。いずれも崩れはしない
 - JS 無効時: PC 幅ではナビが表示される。スマホ幅ではナビを開けない（電話・アクセスは追従バーから可能）。FAQ は閉じた状態で表示（内容は DOM 上に存在）
 
 ## ページを増やすときの準備
