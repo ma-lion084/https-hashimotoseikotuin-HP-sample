@@ -4,40 +4,98 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0d47a1"><!-- style.css の --color-primary-dark と同じ値にする -->
-<title>はしもと整骨院｜肩こり・腰痛・急なケガ｜札幌・夜20時まで</title>
-<meta name="description" content="捻挫・打撲・ぎっくり腰などのケガから、つらい肩こり・腰痛まで。札幌のはしもと整骨院は予約不要・平日20時まで受付。交通事故（自賠責保険）・労災保険にも対応。ケガ向けの基本コース（保険適用の場合あり）、自費の集中施術コース、小中学生の心身サポートコースをご用意。TEL:011-886-2300">
+<title>はしもと整骨院｜札幌市清田区美しが丘｜肩こり・腰痛・ケガ・交通事故</title>
+<meta name="description" content="札幌市清田区美しが丘の整骨院。捻挫・打撲・ぎっくり腰などのケガ（保険適用の場合あり）、肩こり・腰痛の集中施術、交通事故（自賠責保険）・労災保険に対応。予約不要・平日20時まで受付。TEL:011-886-2300">
 
-<!-- TODO(公開前): 公開URL・OGP画像・favicon に差し替え -->
-<link rel="canonical" href="https://example.com/">
+<!-- 正規URL。独自ドメインへ移行したら canonical / og:url / JSON-LD の url・@id / sitemap.xml をまとめて書き換える -->
+<link rel="canonical" href="https://ma-lion084.github.io/https-hashimotoseikotuin-HP-sample/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="はしもと整骨院｜肩こり・腰痛・急なケガ｜札幌">
-<meta property="og:description" content="ケガも肩こり・腰痛も。予約不要・平日20時まで受付の札幌の整骨院。">
-<meta property="og:image" content="https://example.com/ogp.jpg">
+<meta property="og:url" content="https://ma-lion084.github.io/https-hashimotoseikotuin-HP-sample/">
+<meta property="og:site_name" content="はしもと整骨院">
+<meta property="og:title" content="はしもと整骨院｜札幌市清田区美しが丘｜肩こり・腰痛・ケガ・交通事故">
+<meta property="og:description" content="札幌市清田区美しが丘の整骨院。ケガも肩こり・腰痛も、交通事故・労災も。予約不要・平日20時まで受付。">
+<!-- TODO(公開前): OGP画像（1200×630px の JPG/PNG、院名・電話・エリアを入れる）を assets/img/ogp.jpg に置く。用意できたら JSON-LD の image にも同じURLを追加 -->
+<meta property="og:image" content="https://ma-lion084.github.io/https-hashimotoseikotuin-HP-sample/assets/img/ogp.jpg">
 <meta property="og:locale" content="ja_JP">
-<!-- <link rel="icon" href="/favicon.ico"> -->
+<meta name="twitter:card" content="summary_large_image">
+<!-- TODO(公開前): 検索結果のアイコン用に 48×48 以上の PNG も用意すると確実（SVG の扱いは要確認） -->
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
 <link rel="stylesheet" href="assets/css/style.css">
 
-<!-- 構造化データ  TODO(公開前): url を入力
-     ※ ここは画面に出ない「4つ目のコピー」。電話は +81 形式、時間は 09:00 のように2桁で書く。
-        電話・受付時間・住所を変えたら必ずここも直す（README「よくある編集」参照） -->
+<!-- 構造化データ（Google のローカルビジネス向け）
+     ※ 画面に出ない「4つ目のコピー」。電話は +81 形式、時間は 09:00 のように2桁で書く。
+        電話・受付時間・住所を変えたら必ずここも直す（README「よくある編集」参照）
+     ※ geo は丁目中心の参考値。Google マップで院の位置を右クリック → 座標をコピーして差し替える
+     ※ image は OGP 画像を用意したら "image": "…/assets/img/ogp.jpg" を追加（ローカルビジネスのリッチリザルトで必須扱い・要確認）
+     ※ sameAs は Google ビジネスプロフィールの URL が決まったら追加 -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "MedicalBusiness",
+  "@id": "https://ma-lion084.github.io/https-hashimotoseikotuin-HP-sample/#business",
   "name": "はしもと整骨院",
+  "alternateName": "Hashimoto Seikotsuin",
+  "description": "札幌市清田区美しが丘の整骨院。捻挫・打撲・ぎっくり腰などのケガ（保険適用の場合あり）、慢性的な肩こり・腰痛の集中施術、交通事故（自賠責保険）・労災保険に対応。予約不要、平日20時まで受付。",
+  "url": "https://ma-lion084.github.io/https-hashimotoseikotuin-HP-sample/",
   "telephone": "+81-11-886-2300",
-  "url": "https://example.com/",
+  "priceRange": "¥500〜¥4,000",
+  "currenciesAccepted": "JPY",
   "address": {
     "@type": "PostalAddress",
+    "postalCode": "004-0813",
+    "addressCountry": "JP",
     "addressRegion": "北海道",
     "addressLocality": "札幌市",
     "streetAddress": "清田区美しが丘3条2丁目1-5"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 42.98622,
+    "longitude": 141.44793
+  },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=%E5%8C%97%E6%B5%B7%E9%81%93%E6%9C%AD%E5%B9%8C%E5%B8%82%E6%B8%85%E7%94%B0%E5%8C%BA%E7%BE%8E%E3%81%97%E3%81%8C%E4%B8%983%E6%9D%A12%E4%B8%81%E7%9B%AE1-5",
+  "areaServed": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "札幌市清田区"
+    },
+    {
+      "@type": "Place",
+      "name": "美しが丘"
+    }
+  ],
   "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "12:30" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "15:00", "closes": "20:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "12:00" }
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "12:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "15:00",
+      "closes": "20:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "12:00"
+    }
   ]
 }
 </script>
@@ -89,8 +147,8 @@
      Hero (#top)
      ========================================================================= -->
 <section class="hero" id="top">
-  <p class="hero__eyebrow">札幌の整骨院｜国家資格者が施術</p>
-  <h1 class="hero__title">つらい肩こり・腰痛も、<br>急なケガも、<strong>原因から</strong>整える整骨院</h1>
+  <p class="hero__eyebrow">札幌市清田区・美しが丘の整骨院｜国家資格者が施術</p>
+  <h1 class="hero__title">つらい肩こり・腰痛も、<br>急なケガも、<strong>原因から</strong>整える<span class="u-nowrap">清田区の整骨院</span></h1>
   <p class="hero__lead">捻挫・打撲・ぎっくり腰などのケガ・急な痛みには「基本コース」。<br>長引く不調には「集中施術コース（自費）」。<br>小中学生のお子さんには「心身サポートコース（自費）」もご用意しています。</p>
   <!-- バッジは固定サイズの円。文言は最大 2行×7文字まで（<br> で改行位置を指定） -->
   <ul class="badge-list hero__badges">
@@ -159,7 +217,7 @@
 
       <article class="card card--hover reason-card">
         <span class="circle-num reason-card__num" aria-hidden="true">2</span>
-        <h3 class="reason-card__title">夜20時まで営業<br>仕事帰りに通える</h3>
+        <h3 class="reason-card__title">夜20時まで受付<br>仕事帰りに通える</h3>
         <div class="reason-card__body prose">
           <p>月〜金曜は夜20時まで受付しています。</p>
           <p>お仕事帰りやスキマ時間にも無理なく通えるので、忙しいデスクワーカーの方に選ばれています。</p>
@@ -616,7 +674,7 @@
           <dd>はしもと整骨院</dd>
           <!-- TODO(公開前): 駐車場の有無・台数を入力 -->
           <dt>住所</dt>
-          <dd>北海道札幌市清田区美しが丘3条2丁目1-5</dd>
+          <dd>〒004-0813 北海道札幌市清田区美しが丘3条2丁目1-5</dd>
           <dt>アクセス</dt>
           <dd>北海道中央バス「美しが丘3条2丁目」バス停より徒歩約3分</dd>
           <dt>電話番号</dt>
@@ -635,6 +693,7 @@
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
+        <p class="map-links"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E5%8C%97%E6%B5%B7%E9%81%93%E6%9C%AD%E5%B9%8C%E5%B8%82%E6%B8%85%E7%94%B0%E5%8C%BA%E7%BE%8E%E3%81%97%E3%81%8C%E4%B8%983%E6%9D%A12%E4%B8%81%E7%9B%AE1-5" target="_blank" rel="noopener">Googleマップでルートを検索</a></p>
       </div>
 
     </div>
@@ -664,7 +723,7 @@
 <footer class="site-footer">
   <p class="site-footer__name">はしもと整骨院</p>
   <p>TEL：<a href="tel:0118862300">011-886-2300</a></p>
-  <p>受付時間：月〜金 9:00〜12:30／15:00〜20:00、土 9:00〜12:00／定休日：日曜・祝日</p>
+  <p>受付時間：月〜金 9:00〜12:30／15:00〜20:00、土 9:00〜12:00／定休日：日曜日・祝日</p>
   <p class="site-footer__copy">© Hashimoto Seikotsuin All Rights Reserved.</p>
 </footer>
 

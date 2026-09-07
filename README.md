@@ -21,17 +21,18 @@ site/
 | やりたいこと | `index.html` で検索する語 | 件数 | 補足 |
 |---|---|---|---|
 | 電話番号 | `011-886-2300` | 10行 | `href="tel:0118862300"` は同じ行にある（7行）。**別途 JSON-LD の `+81-11-886-2300`（1行）も直す** |
-| 平日の受付時間 | `20:00` と `20時` | 5行＋7行 | `20:00` は表・アクセス・CTA・フッター・JSON-LD。`20時` は title・meta・OGP・バッジ・理由カード・追従CTA |
+| 平日の受付時間 | `20:00` と `20時` | 5行＋7行 | `20:00` は表・アクセス・CTA・フッター・JSON-LD。`20時` は meta・OGP・JSON-LD の説明文・バッジ・理由カード・追従CTA |
 | 土曜の受付時間 | `〜12:00` と `Saturday` | 5行＋1行 | 表のセルは `〜12:00` だけで書かれている。`Saturday` は JSON-LD |
 | 休憩時間 | `12:30` | 6行 | JSON-LD を含む |
 | 定休日 | `祝` | 4行 | JSON-LD には定休日を書かない（曜日を列挙しない＝休み） |
-| 住所 | `美しが丘` | 3行 | JSON-LD・アクセス欄・バス停名 |
+| 住所 | `美しが丘` と `清田区` | 各10行 | title・description・OGP・JSON-LD（住所・説明文・geo）・ヒーロー・アクセス欄・バス停名。移転時は JSON-LD の `postalCode` と `geo` も直す |
 | 料金 | 金額そのもの（例 `1,500円`） | 基本コース 3行、集中 2行、小中学生 2行 | 基本コースの金額は FAQ「保険は使えますか」にも書かれている |
 | コースの数 | `3つの` | 5行 | コース追加時は「4つの」に一括置換 |
 | コースを追加する | 下の「コース追加チェックリスト」 | — | |
 | コースの色 | `style.css`「Courses」の `.course-card--*` 内の4変数 | — | 色そのものは `:root` の `--color-basic*` `--color-kids*` |
 | FAQ を追加する | `faq-item` を複製し `aria-controls` と `id` を**追加順の連番**にする（次は `faq-a9`） | — | 表示順と id の順は無関係。回答の3重 `div` は開閉アニメーション用なので減らさない |
 | ブランド色 | `style.css` `:root` の `--color-primary*`、`--color-bg-*`、`--color-border`、`--shadow-card*`、`--shadow-cta`、および `index.html` の `theme-color` | — | 影・下線・暗幕は `--color-primary-glow / -overlay / -underline` |
+| 公開URL（独自ドメイン移行時） | `ma-lion084.github.io/https-hashimotoseikotuin-HP-sample` | index.html 5行＋`sitemap.xml` 1行 | canonical・og:url・og:image・JSON-LD の `@id`/`url`。移行後は Search Console でアドレス変更も申請 |
 | スマホのブレークポイント | `style.css` の `@media (max-width: 820px)`（1箇所）と `main.js` の `matchMedia('(min-width: 821px)')`（1箇所） | 2 | 院長紹介の幅 `--container-w-doctor: 820px` は同じ数字だが無関係 |
 
 ### コース追加チェックリスト
@@ -55,6 +56,19 @@ site/
 - **JSON-LD**（`<head>` 内の構造化データ）は画面に出ない4つ目のコピー。電話は `+81` 形式、時間は `09:00` のように2桁で書く
 - **お客様の声・理由カードには営業時間などの事実を書かない**。事実が変わったときに更新対象と気づけないため
 - `TODO(公開前)` は公開前に必ず対応。`TODO(要確認)` は院長確認待ちの仮置き
+
+## SEO・MEO の運用メモ
+
+- **NAP の正表記（サイト・Google ビジネスプロフィール・各地図サイトで一字も変えない）**
+  - 名称: はしもと整骨院（英字: Hashimoto Seikotsuin）
+  - 住所: 〒004-0813 北海道札幌市清田区美しが丘3条2丁目1-5
+  - 電話: 011-886-2300
+  - 受付時間: 月〜金 9:00〜12:30／15:00〜20:00、土 9:00〜12:00、定休日: 日曜日・祝日（「営業時間」ではなく「受付時間」で統一）
+- **構造化データ（JSON-LD）**: `geo` は丁目中心の参考値。Google マップで院の位置を右クリックして座標に差し替える。OGP 画像を置いたら `image` を追加、GBP の URL が決まったら `sameAs` を追加
+- **sitemap.xml**: Search Console の「サイトマップ」に `https://ma-lion084.github.io/https-hashimotoseikotuin-HP-sample/sitemap.xml` を登録。`robots.txt` はプロジェクトページではホスト直下に置けないため作らない（独自ドメイン移行後に作る）
+- **GA4 の入れ方**: 測定 ID（G-XXXXXXXXXX）を取得したら、`index.html` の `<meta charset>` の直後に公式スニペットを貼る。電話タップ（`tel_click`）とルート検索（`route_click`）は `main.js` が自動で送るので、GA4 側で「キーイベント」に指定する
+- **Search Console**: 「URL プレフィックス」で正規URLを登録し、所有権確認は GA4 連携か HTML タグ（`<meta name="google-site-verification">` を `<head>` に追加）で行う
+- **月1回見る数字**: GBP の「通話」「ルート」件数、Search Console の「清田区 整骨院」系クエリの表示回数とクリック数、GA4 の `tel_click` 件数
 
 ## 命名規則
 

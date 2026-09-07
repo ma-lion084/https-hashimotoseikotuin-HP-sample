@@ -8,6 +8,7 @@
  * 機能:
  *   1. モバイルナビ（ハンバーガー）
  *   2. FAQ アコーディオン
+ *   3. 計測イベント（電話タップ・ルート検索）。GA4 の gtag が無ければ何もしない
  */
 (() => {
   'use strict';
@@ -69,11 +70,30 @@
   };
 
   /* ---------------------------------------------------------------------------
+   * 3. Conversion events
+   *    「検索経由の来院」に最も近い行動（電話タップ・ルート検索）を GA4 に送る。
+   *    GA4 のタグ（gtag）が未設置なら何もしないので、先に入れておいて害はない。
+   * ------------------------------------------------------------------------- */
+  const initConversionEvents = () => {
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href]');
+      if (!a || typeof window.gtag !== 'function') return;
+      const href = a.getAttribute('href');
+      if (href.startsWith('tel:')) {
+        window.gtag('event', 'tel_click', { link_text: a.textContent.trim().slice(0, 40) });
+      } else if (href.includes('google.com/maps/dir')) {
+        window.gtag('event', 'route_click');
+      }
+    });
+  };
+
+  /* ---------------------------------------------------------------------------
    * Boot
    * ------------------------------------------------------------------------- */
   const init = () => {
     initMobileNav();
     initFaq();
+    initConversionEvents();
   };
 
   if (document.readyState === 'loading') {

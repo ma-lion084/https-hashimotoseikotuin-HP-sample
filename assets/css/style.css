@@ -732,6 +732,8 @@ body.is-nav-open { overflow: hidden; }
   gap: var(--space-5);
   max-width: var(--container-w-access); margin: 0 auto;
 }
+/* 受付時間の表（min-width 420px）が列幅を押し広げないようにする。これが無いとスマホで列が画面より広くなる */
+.access-grid > * { min-width: 0; }
 .hours-table {
   width: 100%; min-width: 420px; margin-top: 10px;   /* 8列（受付時間＋7曜日）が折り返さない幅。狭い画面は .table-scroll で横スクロール */
   border-collapse: collapse;
@@ -759,6 +761,8 @@ body.is-nav-open { overflow: hidden; }
   color: var(--color-text-muted); font-size: var(--fs-sm);
 }
 .map-embed iframe { width: 100%; height: 100%; border: 0; }
+.map-links { margin-top: 8px; font-size: var(--fs-sm); }
+.map-links a { font-weight: bold; color: var(--color-primary); }
 
 /* --- Final CTA --- */
 .final-cta {
@@ -814,6 +818,7 @@ body.is-nav-open { overflow: hidden; }
    6. Utilities
    ============================================================================ */
 .u-pc-only { display: inline; }
+.u-nowrap  { white-space: nowrap; }   /* 地名など途中で折り返すと読みにくい語に */
 .u-visually-hidden {
   position: absolute !important;
   width: 1px; height: 1px; overflow: hidden;
