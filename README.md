@@ -10,7 +10,7 @@ site/
 ├── assets/
 │   ├── css/style.css     スタイル（トークン → 部品 → セクション の順）
 │   ├── js/main.js        ナビ開閉・FAQ開閉（依存ライブラリなし）
-│   └── img/              画像置き場（院長写真・OGP画像など）
+│   └── img/              画像置き場（外観・院内写真、OGP画像など）
 └── README.md
 ```
 
@@ -31,6 +31,7 @@ site/
 | コースを追加する | 下の「コース追加チェックリスト」 | — | |
 | コースの色 | `style.css`「Courses」の `.course-card--*` 内の4変数 | — | 色そのものは `:root` の `--color-basic*` `--color-kids*` |
 | FAQ を追加する | `faq-item` を複製し `aria-controls` と `id` を**追加順の連番**にする（次は `faq-a9`） | — | 表示順と id の順は無関係。回答の3重 `div` は開閉アニメーション用なので減らさない |
+| 外観・院内の写真を差し替える | `assets/img/exterior.jpg`（外観）／`interior.jpg`（院内） | — | 同じファイル名で上書きすれば HTML の変更は不要。横 1200px 程度の JPG に縮小してから置き、`index.html` の `alt` と `figcaption` の文言も写真に合わせて見直す |
 | ブランド色 | `style.css` `:root` の `--color-primary*`、`--color-bg-*`、`--color-border`、`--shadow-card*`、`--shadow-cta`、および `index.html` の `theme-color` | — | 影・下線・暗幕は `--color-primary-glow / -overlay / -underline` |
 | 公開URL（独自ドメイン移行時） | `ma-lion084.github.io/https-hashimotoseikotuin-HP-sample` | index.html 5行＋`sitemap.xml` 1行 | canonical・og:url・og:image・JSON-LD の `@id`/`url`。移行後は Search Console でアドレス変更も申請 |
 | スマホのブレークポイント | `style.css` の `@media (max-width: 820px)`（1箇所）と `main.js` の `matchMedia('(min-width: 821px)')`（1箇所） | 2 | 院長紹介の幅 `--container-w-doctor: 820px` は同じ数字だが無関係 |
@@ -54,7 +55,7 @@ site/
 - **`<br class="u-pc-only">`** は PC だけ改行する印。文言を変えるときは一度外して確認する
 - **バッジ**（ヒーローの丸）は固定サイズ。文言は最大 2行×7文字まで
 - **JSON-LD**（`<head>` 内の構造化データ）は画面に出ない4つ目のコピー。電話は `+81` 形式、時間は `09:00` のように2桁で書く
-- **お客様の声・理由カードには営業時間などの事実を書かない**。事実が変わったときに更新対象と気づけないため
+- **理由カードには営業時間などの事実を書かない**。事実が変わったときに更新対象と気づけないため
 - `TODO(公開前)` は公開前に必ず対応。`TODO(要確認)` は院長確認待ちの仮置き
 
 ## SEO・MEO の運用メモ
@@ -82,7 +83,7 @@ site/
 - [ ] `<link rel="canonical">` / OGP の URL・画像を実際のものに
 - [ ] favicon を設置
 - [ ] 構造化データ（JSON-LD）の `url`
-- [ ] 院長名・院長写真
+- [ ] 院長名
 - [ ] 駐車場の有無・台数（アクセス欄）
 - [x] 住所・最寄バス停
 - [x] Google マップの iframe 埋め込み

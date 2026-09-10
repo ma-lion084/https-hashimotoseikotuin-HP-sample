@@ -55,7 +55,6 @@
   --color-border:         rgba(25, 118, 210, .12);
   --color-border-soft:    #dfe5ec;
   --color-divider:        #d6dde5;
-  --color-star:           #f5b942;
   --color-closed:         #b8c0c8;
 
   /* --- Gradients --- */
@@ -641,40 +640,21 @@ body.is-nav-open { overflow: hidden; }
 
 .price-notes { max-width: var(--container-w-narrow); margin: 14px auto 0; }
 
-/* --- Voices --- */
-.voice-grid {
+/* --- Clinic（外観・院内写真） --- */
+.clinic-grid {
   display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 22px;
 }
-.voice-card {
-  display: flex; flex-direction: column;
-  padding: 26px 22px;
-}
-.voice-card__stars { margin-bottom: 8px; letter-spacing: 2px; color: var(--color-star); }
-.voice-card__title { margin-bottom: 8px; font-size: .98rem; color: var(--color-primary-dark); }
-.voice-card__body { font-size: .9rem; }
-.voice-card__who {
-  margin-top: auto; padding-top: var(--space-2);
-  text-align: right; font-size: var(--fs-xs);
+.clinic-figure { overflow: hidden; }   /* 角丸カードの内側で画像を切る */
+.clinic-figure__img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.clinic-figure__caption {
+  padding: 12px 16px;
+  text-align: center; font-size: .9rem;
   color: var(--color-text-muted);
 }
-.voice-note { margin-top: var(--space-4); }
 
 /* --- Doctor --- */
-.doctor {
-  display: flex; gap: 40px; align-items: center;
-  max-width: var(--container-w-doctor); margin: 0 auto;
-}
-.doctor__photo {
-  flex-shrink: 0; overflow: hidden;
-  width: 220px; height: 220px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, var(--color-bg-soft), var(--color-bg-hero-b));
-  box-shadow: 0 4px 14px rgba(0, 0, 0, .1);
-  font-size: 4rem;
-}
-.doctor__photo img { width: 100%; height: 100%; object-fit: cover; }
-.doctor__text { flex: 1; }
+.doctor { max-width: var(--container-w-doctor); margin: 0 auto; }
 .doctor__name { margin-bottom: 4px; font-size: 1.2rem; color: var(--color-primary-dark); }
 .doctor__license {
   margin-bottom: 14px;
@@ -860,16 +840,13 @@ body.is-nav-open { overflow: hidden; }
   .badge { width: 94px; height: 94px; font-size: .68rem; }
 
   .reason-grid,
-  .voice-grid,
+  .clinic-grid,
   .course-grid,
   .course-scope__grid,
   .access-grid { grid-template-columns: 1fr; }
 
   .insurance-banner__inner { flex-direction: column; text-align: center; }
   .insurance-banner__text { width: 100%; }
-
-  .doctor { flex-direction: column; text-align: center; }
-  .doctor__body { text-align: left; }
 
   .price-table th,
   .price-table td { padding: 12px 10px; font-size: .88rem; }
