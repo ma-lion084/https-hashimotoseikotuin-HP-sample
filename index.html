@@ -127,6 +127,7 @@
         <li class="site-nav__item"><a class="site-nav__link" href="#clinic">院内の様子</a></li>
         <li class="site-nav__item"><a class="site-nav__link" href="#faq">よくあるご質問</a></li>
         <li class="site-nav__item"><a class="site-nav__link" href="#access">アクセス</a></li>
+        <li class="site-nav__item site-nav__item--tel"><a class="site-nav__tel" href="tel:0118862300"><svg class="icon"><use href="#i-tel"/></svg>電話で相談する<small>011-886-2300</small></a></li>
       </ul>
     </nav>
 
@@ -147,20 +148,23 @@
      Hero (#top)
      ========================================================================= -->
 <section class="hero" id="top">
-  <p class="hero__eyebrow">札幌市清田区・美しが丘の整骨院｜国家資格者が施術</p>
+  <p class="hero__eyebrow">札幌市清田区・美しが丘の整骨院<span class="u-pc-only">｜国家資格者が施術</span></p>
   <h1 class="hero__title">つらい肩こり・腰痛も、<br>急なケガも、<strong>原因から</strong>整える<span class="u-nowrap">清田区の整骨院</span></h1>
-  <p class="hero__lead">捻挫・打撲・ぎっくり腰などのケガ・急な痛みには「基本コース」。<br>長引く不調には「集中施術コース（自費）」。<br>小中学生のお子さんには「心身サポートコース（自費）」もご用意しています。</p>
-  <!-- バッジは固定サイズの円。文言は最大 2行×7文字まで（<br> で改行位置を指定） -->
+  <!-- 意思決定に直結する事実（予約不要・受付時間）をコース説明より先に置く。
+       PC は固定サイズの円（文言は最大 2行×7文字、<br> で改行位置を指定）。スマホは 2×2 の角丸チップで <br> は無効 -->
   <ul class="badge-list hero__badges">
-    <li class="badge">国家資格者が<br>施術</li>
-    <li class="badge">夜20時まで<br>受付</li>
     <li class="badge">予約不要<br>そのまま来院OK</li>
+    <li class="badge">夜20時まで<br>受付</li>
+    <li class="badge">国家資格者が<br>施術</li>
     <li class="badge">交通事故・<br>労災保険対応</li>
   </ul>
   <div class="btn-group">
-    <a href="tel:0118862300" class="btn btn--primary"><svg class="icon"><use href="#i-tel"/></svg>011-886-2300<small>タップで発信できます</small></a>
-    <a href="#course" class="btn btn--ghost">3つの施術コースを見る<small>あなたに合うコースはどれ？</small></a>
+    <!-- スマホは行動の言葉、PC は番号（別の電話でかける人が読む） -->
+    <a href="tel:0118862300" class="btn btn--primary"><svg class="icon"><use href="#i-tel"/></svg><span class="u-sp-only">電話で相談する</span><span class="u-pc-only">011-886-2300</span><small><span class="u-sp-only">011-886-2300</span><span class="u-pc-only">タップで発信できます</span></small></a>
   </div>
+  <p class="hero__hours">受付 9:00〜12:30／15:00〜20:00<br>土曜 9:00〜12:00・日祝休</p>
+  <p class="hero__lead">捻挫・打撲・ぎっくり腰などのケガ・急な痛みには「基本コース」。<br class="u-pc-only">長引く不調には「集中施術コース（自費）」。<br class="u-pc-only">小中学生のお子さんには「心身サポートコース（自費）」もご用意しています。</p>
+  <a href="#course" class="hero__more">3つの施術コースを見る</a>
 </section>
 
 <!-- =========================================================================
@@ -171,10 +175,10 @@
   <div class="container insurance-banner__inner">
     <span class="insurance-banner__icon" aria-hidden="true"><svg class="icon"><use href="#i-info"/></svg></span>
     <div class="insurance-banner__text prose">
-      <p class="insurance-banner__title">交通事故（自賠責保険）・労災保険に対応しています</p>
+      <p class="insurance-banner__title">交通事故<span class="u-pc-only">（自賠責保険）</span>・労災保険に対応しています</p>
       <p class="insurance-banner__lead">自己負担0円で通院できます。まずはお電話でご相談ください。</p>
     </div>
-    <a href="tel:0118862300" class="btn btn--accent-warm insurance-banner__tel"><svg class="icon"><use href="#i-tel"/></svg>011-886-2300<small>タップで発信できます</small></a>
+    <a href="tel:0118862300" class="btn btn--accent-warm insurance-banner__tel"><svg class="icon"><use href="#i-tel"/></svg><span class="u-sp-only">事故・労災のご相談</span><span class="u-pc-only">011-886-2300</span><small><span class="u-sp-only">011-886-2300</span><span class="u-pc-only">タップで発信できます</span></small></a>
   </div>
 </section>
 
@@ -194,6 +198,9 @@
       <li class="worry-list__item">捻挫や打撲をしたが、どこに行けばいいか分からない</li>
     </ul>
     <p class="worry-msg">ひとつでも当てはまる方は、<br><strong>はしもと整骨院</strong>にご相談ください。</p>
+    <div class="btn-group worry-cta">
+      <a href="tel:0118862300" class="btn btn--primary"><svg class="icon"><use href="#i-tel"/></svg>電話で相談する<small>011-886-2300</small></a>
+    </div>
   </div>
 </section>
 
@@ -221,7 +228,7 @@
         <div class="reason-card__body prose">
           <p>月〜金曜は夜20時まで受付しています。</p>
           <p>お仕事帰りやスキマ時間にも無理なく通えるので、忙しいデスクワーカーの方に選ばれています。</p>
-          <p>受付時間の詳細はアクセス欄をご覧ください。</p>
+          <p>受付時間の詳細は<a href="#access">アクセス欄</a>をご覧ください。</p>
         </div>
       </article>
 
@@ -258,6 +265,11 @@
   <div class="container">
     <h2 class="section__title">3つの施術コース</h2>
     <p class="section__sub">Course</p>
+    <div class="note-box course-guide">
+      <p class="note-box__title">どのコースが合うか分からない方へ</p>
+      <p>迷ったら、そのままご来院ください。</p>
+      <p>初回のカウンセリングと施術の中で状態を確認し、<br class="u-pc-only">あなたに最適なコースをご提案します。</p>
+    </div>
     <div class="course-grid">
 
       <article class="card course-card course-card--basic">
@@ -332,7 +344,6 @@
             <li class="course-card__chip">朝起きられない・だるい</li>
             <li class="course-card__chip">眠りが浅い</li>
             <li class="course-card__chip">疲れやすい</li>
-            <li class="course-card__chip">心療内科・小児科に通院中</li>
           </ul>
           <h4 class="course-card__label">施術内容（約20分）</h4>
           <ul class="course-card__points">
@@ -340,6 +351,7 @@
             <li class="course-card__point">手技療法（10分）</li>
             <li class="course-card__point">お子さんの状態に合わせた、痛みのない優しい施術</li>
             <li class="course-card__point">保護者の方の同席OK。初回は保護者の方からもお話を伺います</li>
+            <li class="course-card__point">心療内科・小児科に通院中のお子さんも、治療と併用してご利用いただけます</li>
           </ul>
           <h4 class="course-card__label">料金・通院の目安</h4>
           <!-- TODO(要確認): 2,500円が「一律」か「基本コース料金＋2,500円」かを院長に確認。現在は一律 2,500円で仮組み。確定したら料金表（#price）も同時に直す -->
@@ -379,11 +391,6 @@
       </div>
     </div>
 
-    <div class="note-box course-guide">
-      <p class="note-box__title">どのコースが合うか分からない方へ</p>
-      <p>迷ったら、そのままご来院ください。</p>
-      <p>初回のカウンセリングと施術の中で状態を確認し、<br class="u-pc-only">あなたに最適なコースをご提案します。</p>
-    </div>
   </div>
 </section>
 
@@ -466,6 +473,12 @@
       <li>※初回から1ヶ月以上あいた場合は、再度初回料金となります。</li>
       <li>※回数券の販売はしておりません。</li>
     </ul>
+
+    <div class="note-box price-cta">
+      <p class="note-box__title">保険が使えるか分からない方へ</p>
+      <p>症状を伺えば、お電話で目安をお伝えできます。</p>
+      <a href="tel:0118862300" class="btn btn--primary"><svg class="icon"><use href="#i-tel"/></svg>電話で相談する<small>011-886-2300</small></a>
+    </div>
   </div>
 </section>
 
@@ -610,24 +623,25 @@
         <div class="table-scroll">
           <table class="hours-table">
             <thead>
-              <tr>
-                <th scope="col">受付時間</th>
-                <th scope="col">月</th><th scope="col">火</th><th scope="col">水</th><th scope="col">木</th><th scope="col">金</th><th scope="col">土</th><th scope="col">日</th>
-              </tr>
+              <tr><th scope="col">曜日</th><th scope="col">午前</th><th scope="col">午後</th></tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">9:00〜12:30</th>
-                <td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>〜12:00</td><td class="hours-table__closed">休</td>
-              </tr>
-              <tr>
-                <th scope="row">15:00〜20:00</th>
-                <td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td class="hours-table__closed">休</td><td class="hours-table__closed">休</td>
-              </tr>
+              <tr><th scope="row">月〜金</th><td>9:00〜12:30</td><td>15:00〜20:00</td></tr>
+              <tr><th scope="row">土</th><td>9:00〜12:00</td><td class="hours-table__closed">休診</td></tr>
+              <tr><th scope="row">日・祝</th><td class="hours-table__closed" colspan="2">休診</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="fine-print hours-note">※休憩時間：12:30〜15:00　※土曜は午前（9:00〜12:00）のみ　※定休日：日曜日・祝日</p>
+        <p class="fine-print hours-note">※休憩時間：12:30〜15:00</p>
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m3!2m1!1z5YyX5rW36YGT5pyt5bmM5biC5riF55Sw5Yy6576O44GX44GM5LiY77yT5p2h77yS5LiB55uu77yRLe-8lQ!6i16!3m1!1sja!5m1!1sja"
+            title="はしもと整骨院の地図（Googleマップ）"
+            width="600" height="220"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
 
       <div>
@@ -646,16 +660,10 @@
           <dt>定休日</dt>
           <dd>日曜日・祝日</dd>
         </dl>
-        <div class="map-embed">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m3!2m1!1z5YyX5rW36YGT5pyt5bmM5biC5riF55Sw5Yy6576O44GX44GM5LiY77yT5p2h77yS5LiB55uu77yRLe-8lQ!6i16!3m1!1sja!5m1!1sja"
-            title="はしもと整骨院の地図（Googleマップ）"
-            width="600" height="220"
-            allowfullscreen
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="btn-group access__actions">
+          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E5%8C%97%E6%B5%B7%E9%81%93%E6%9C%AD%E5%B9%8C%E5%B8%82%E6%B8%85%E7%94%B0%E5%8C%BA%E7%BE%8E%E3%81%97%E3%81%8C%E4%B8%983%E6%9D%A12%E4%B8%81%E7%9B%AE1-5" class="btn btn--ghost" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg>Googleマップでルートを検索<small>バス停から徒歩約3分</small></a>
+          <a href="tel:0118862300" class="btn btn--primary"><svg class="icon"><use href="#i-tel"/></svg>電話で相談する<small>011-886-2300</small></a>
         </div>
-        <p class="map-links"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E5%8C%97%E6%B5%B7%E9%81%93%E6%9C%AD%E5%B9%8C%E5%B8%82%E6%B8%85%E7%94%B0%E5%8C%BA%E7%BE%8E%E3%81%97%E3%81%8C%E4%B8%983%E6%9D%A12%E4%B8%81%E7%9B%AE1-5" target="_blank" rel="noopener">Googleマップでルートを検索</a></p>
       </div>
 
     </div>
@@ -667,7 +675,7 @@
      ========================================================================= -->
 <section class="section final-cta">
   <div class="container">
-    <h2 class="final-cta__title">つらい肩こり、ひとりで我慢していませんか？</h2>
+    <h2 class="final-cta__title">つらい痛み、ひとりで我慢していませんか？</h2>
     <p class="final-cta__lead">急な痛みも、長引く不調も、まずはお気軽にご来院ください。<br>予約は不要です。保険証をお持ちください。</p>
     <a href="tel:0118862300" class="final-cta__tel"><svg class="icon"><use href="#i-tel"/></svg>011-886-2300<small>タップで電話がかかります</small></a>
     <p class="final-cta__hours">受付時間：月〜金 9:00〜12:30／15:00〜20:00、土 9:00〜12:00／日・祝休み</p>

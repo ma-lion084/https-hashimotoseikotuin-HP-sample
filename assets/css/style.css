@@ -21,7 +21,7 @@
   --color-primary:        #1976d2;
   --color-primary-dark:   #0d47a1;
   --color-primary-light:  #42a5f5;
-  --color-primary-deep:   #1e88e5;   /* 小さい文字でもコントラストを確保できる青 */
+  --color-primary-deep:   #1565c0;   /* 小さい文字用。白地で 5.7:1（AA）。--color-primary-mid と同値だが役割が違う */
   --color-primary-mid:    #1565c0;   /* --gradient-primary-dark 用 */
 
   /* --- Brand-derived（ブランド色を変えたらここも見直す：影・暗幕・下線） --- */
@@ -30,7 +30,7 @@
   --color-primary-underline: rgba(66, 165, 245, .35);   /* ヒーロー見出しの下線 */
 
   /* --- Course colors（コースを増やす場合はここに追加。集中コースはブランド青を使用） --- */
-  --color-basic:          #00897b;
+  --color-basic:          #00796b;   /* 白文字を載せる帯で 5.3:1 */
   --color-basic-dark:     #00695c;
   --color-basic-bg:       #e6f4f2;
   --color-kids:           #7e57c2;   /* 小中学生コース：やさしいパープル */
@@ -55,12 +55,12 @@
   --color-border:         rgba(25, 118, 210, .12);
   --color-border-soft:    #dfe5ec;
   --color-divider:        #d6dde5;
-  --color-closed:         #b8c0c8;
+  --color-closed:         #667380;   /* 受付時間表の「休診」。白地で 4.9:1 */
 
   /* --- Gradients --- */
   --gradient-tint:        linear-gradient(180deg, var(--color-bg-soft), var(--color-bg-tint));
-  --gradient-primary:     linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
   --gradient-primary-dark:linear-gradient(135deg, var(--color-primary-mid), var(--color-primary-dark));
+  --gradient-cta:         linear-gradient(135deg, var(--color-primary), var(--color-primary-mid));   /* 最終CTA。全域で白文字 4.6:1 以上 */
 
   /* --- Effects --- */
   --shadow-card:          0 10px 30px rgba(25, 118, 210, .08);
@@ -200,6 +200,12 @@ main { padding-top: var(--header-h); }
 /* 段落のリズム：同じ親の中で p が続くときだけ余白を入れる */
 .prose p + p { margin-top: 8px; }
 
+/* 見出しが「〜4つの理／由」のように1文字だけ折り返すのを防ぐ（非対応ブラウザでは通常の折り返し） */
+.section__title,
+.note-box__title,
+.reason-card__title,
+.faq-item__q { text-wrap: balance; }
+
 
 /* =============================================================================
    4. Components
@@ -231,7 +237,6 @@ main { padding-top: var(--header-h); }
   box-shadow: var(--shadow-btn);
   transition: transform var(--dur-fast), background var(--dur-fast), box-shadow var(--dur-fast);
 }
-.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-btn-hover); }
 .btn small { display: block; font-size: .75rem; font-weight: normal; opacity: .9; }
 
 .btn--primary { background: var(--color-primary); color: var(--color-white); }
@@ -245,8 +250,8 @@ main { padding-top: var(--header-h); }
 }
 .btn--ghost:hover { background: var(--color-bg-tint); }
 
-.btn--accent-warm { background: var(--color-accent-warm); color: var(--color-white); }
-.btn--accent-warm:hover { background: var(--color-accent-warm-dark); }
+.btn--accent-warm { background: var(--color-accent-warm-dark); color: var(--color-white); }   /* 白文字で 5.6:1 */
+.btn--accent-warm:hover { filter: brightness(.92); }
 
 .btn-group {
   display: flex; flex-wrap: wrap; justify-content: center;
@@ -261,7 +266,6 @@ main { padding-top: var(--header-h); }
   box-shadow: var(--shadow-card);
 }
 .card--hover { transition: transform var(--dur-base), box-shadow var(--dur-base); }
-.card--hover:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
 
 /* --- Badge（丸いバッジ） --- */
 .badge-list {
@@ -313,7 +317,6 @@ main { padding-top: var(--header-h); }
 .fine-print--list { text-align: left; }
 .fine-print--list li { padding-left: 1.2em; text-indent: -1.2em; }
 .fine-print--list li + li { margin-top: 2px; }
-.fine-print--center { text-align: center; }
 
 
 /* =============================================================================
@@ -346,6 +349,7 @@ main { padding-top: var(--header-h); }
 .site-nav__list { display: flex; gap: 22px; }
 .site-nav__link { font-size: .9rem; font-weight: 600; transition: color var(--dur-fast); }
 .site-nav__link:hover { color: var(--color-primary); }
+.site-nav__item--tel { display: none; }   /* スマホのドロワーでだけ表示（Responsive 参照） */
 
 .site-header__tel {
   padding: 9px 18px; border-radius: 30px;
@@ -398,10 +402,16 @@ body.is-nav-open { overflow: hidden; }
   border-bottom: 6px solid var(--color-primary-underline);
 }
 .hero__lead {
-  max-width: var(--container-w-text); margin: 0 auto 30px;
+  max-width: var(--container-w-text); margin: 0 auto;
   font-size: 1.05rem;
 }
 .hero__badges { margin-bottom: var(--space-5); }
+.hero__hours { margin: 10px 0 var(--space-5); font-size: var(--fs-sm); line-height: 1.7; }   /* 本文色のまま（薄い青地でも 4.5:1 を保つ） */
+.hero__more {
+  display: inline-block; margin-top: var(--space-2); padding: 8px 4px;   /* タップ領域 44px 以上 */
+  font-weight: bold; color: var(--color-primary-dark);
+  text-decoration: underline; text-underline-offset: 4px;
+}
 
 /* --- Insurance banner（交通事故・労災保険の告知帯） --- */
 .insurance-banner {
@@ -456,6 +466,7 @@ body.is-nav-open { overflow: hidden; }
   color: var(--color-primary-dark);
 }
 .worry-msg strong { color: var(--color-primary); font-size: 1.4rem; }
+.worry-cta { margin-top: var(--space-3); }
 
 /* --- Reasons --- */
 .reason-grid {
@@ -470,6 +481,7 @@ body.is-nav-open { overflow: hidden; }
   margin-bottom: 10px;
 }
 .reason-card__body { text-align: left; font-size: var(--fs-base); }
+.reason-card__body a { font-weight: bold; color: var(--color-primary); text-decoration: underline; text-underline-offset: 3px; }
 
 /* --- Courses --- */
 .course-grid {
@@ -493,14 +505,14 @@ body.is-nav-open { overflow: hidden; }
 .course-card__tag {
   display: inline-block; margin-bottom: var(--space-1);
   padding: 2px 12px; border-radius: 20px;
-  background: rgba(255, 255, 255, .22);
+  background: rgba(0, 0, 0, .18);   /* 白文字で 4.5:1 以上 */
   font-size: .72rem; letter-spacing: 2px;
 }
 .course-card__title {
   font-size: var(--fs-xl); line-height: 1.4;
   text-wrap: balance;   /* 2行になるとき行の長さを均等にする（非対応環境では通常の折り返し） */
 }
-.course-card__tagline { margin-top: 4px; font-size: var(--fs-sm); line-height: 1.6; opacity: .92; }
+.course-card__tagline { margin-top: 4px; font-size: var(--fs-sm); line-height: 1.6; }
 .course-card__body { padding: 22px 20px; font-size: .9rem; }
 .course-card__label {
   margin: var(--space-3) 0 8px;
@@ -550,8 +562,9 @@ body.is-nav-open { overflow: hidden; }
   --course-accent:     var(--color-kids);
 }
 
+/* カードの前に置く（選択肢を見る前に「迷ったら来院」を示す） */
 .course-guide {
-  max-width: var(--container-w-card); margin: var(--space-5) auto 0;
+  max-width: var(--container-w-card); margin: 0 auto var(--space-5);
   text-align: center;
 }
 .course-guide p + p { margin-top: var(--space-1); }
@@ -587,7 +600,6 @@ body.is-nav-open { overflow: hidden; }
 .course-scope__note {
   margin-top: var(--space-3);
   font-size: var(--fs-sm);
-  color: var(--color-text-muted);
 }
 
 /* --- Flow --- */
@@ -604,7 +616,7 @@ body.is-nav-open { overflow: hidden; }
   flex-shrink: 0;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   width: 52px; height: 52px; border-radius: 50%;
-  background: var(--color-primary-light); color: var(--color-white);
+  background: var(--color-primary); color: var(--color-white);   /* 白文字で 4.6:1 */
   font-weight: bold; font-size: var(--fs-lg); line-height: 1;
 }
 .flow-step__num small { font-size: .55rem; margin-bottom: 2px; }
@@ -639,6 +651,8 @@ body.is-nav-open { overflow: hidden; }
 .price-table__cat--kids  { background: var(--color-kids-bg);  color: var(--color-kids-dark); }
 
 .price-notes { max-width: var(--container-w-narrow); margin: 14px auto 0; }
+.price-cta { max-width: var(--container-w-narrow); margin: var(--space-4) auto 0; text-align: center; }
+.price-cta .btn { margin-top: var(--space-2); }
 
 /* --- Clinic（外観・院内写真） --- */
 .clinic-grid {
@@ -712,17 +726,18 @@ body.is-nav-open { overflow: hidden; }
   gap: var(--space-5);
   max-width: var(--container-w-access); margin: 0 auto;
 }
-/* 受付時間の表（min-width 420px）が列幅を押し広げないようにする。これが無いとスマホで列が画面より広くなる */
+/* 中身（表・地図）が列幅を押し広げないようにする */
 .access-grid > * { min-width: 0; }
+/* 曜日／午前／午後 の3行。スマホ幅（335px）にそのまま収まる */
 .hours-table {
-  width: 100%; min-width: 420px; margin-top: 10px;   /* 8列（受付時間＋7曜日）が折り返さない幅。狭い画面は .table-scroll で横スクロール */
+  width: 100%; margin-top: 10px;
   border-collapse: collapse;
 }
 .hours-table th,
 .hours-table td {
-  padding: 10px 6px;
+  padding: 12px 8px;
   border: 1px solid var(--color-border-soft);
-  text-align: center; font-size: .9rem;
+  text-align: center; font-size: var(--fs-base); white-space: nowrap;
 }
 .hours-table th { background: var(--gradient-tint); color: var(--color-primary-dark); }
 .hours-table__closed { color: var(--color-closed); }
@@ -741,12 +756,11 @@ body.is-nav-open { overflow: hidden; }
   color: var(--color-text-muted); font-size: var(--fs-sm);
 }
 .map-embed iframe { width: 100%; height: 100%; border: 0; }
-.map-links { margin-top: 8px; font-size: var(--fs-sm); }
-.map-links a { font-weight: bold; color: var(--color-primary); }
+.access__actions { margin-top: var(--space-4); }
 
 /* --- Final CTA --- */
 .final-cta {
-  background: var(--gradient-primary); color: var(--color-white);
+  background: var(--gradient-cta); color: var(--color-white);
   text-align: center;
 }
 .final-cta__title { margin-bottom: 14px; font-size: 1.6rem; line-height: var(--lh-tight); }
@@ -759,7 +773,6 @@ body.is-nav-open { overflow: hidden; }
   box-shadow: var(--shadow-cta);
   transition: transform var(--dur-fast);
 }
-.final-cta__tel:hover { transform: scale(1.03); }
 .final-cta__tel small {
   display: block; margin-top: 4px;
   font-size: .75rem; font-weight: normal;
@@ -775,7 +788,7 @@ body.is-nav-open { overflow: hidden; }
   text-align: center; font-size: .82rem;
 }
 .site-footer__name { margin-bottom: var(--space-1); font-size: 1.05rem; font-weight: bold; }
-.site-footer__copy { margin-top: 14px; opacity: .8; }
+.site-footer__copy { margin-top: 14px; }
 
 /* --- Fixed CTA (mobile) --- */
 .fixed-cta {
@@ -798,6 +811,7 @@ body.is-nav-open { overflow: hidden; }
    6. Utilities
    ============================================================================ */
 .u-pc-only { display: inline; }
+.u-sp-only { display: none; }     /* スマホだけ表示（Responsive で inline にする） */
 .u-nowrap  { white-space: nowrap; }   /* 地名など途中で折り返すと読みにくい語に */
 .u-visually-hidden {
   position: absolute !important;
@@ -831,13 +845,30 @@ body.is-nav-open { overflow: hidden; }
   .site-nav__link { display: block; padding: 15px 5px; font-size: var(--fs-md); }
   .hamburger { display: block; }
   .site-header__tel { display: none; }
+  .site-nav__item--tel { display: block; border-bottom: none; padding-top: 14px; }
+  .site-nav__tel {
+    display: block; padding: 12px; border-radius: var(--radius-pill);
+    background: var(--color-primary); color: var(--color-white);
+    text-align: center; font-weight: bold;
+  }
+  .site-nav__tel small { display: block; font-size: .75rem; font-weight: normal; }
 
   .section { padding: var(--space-6) 0; }
   .section__title { font-size: 1.35rem; }
 
-  .hero { padding: 64px var(--container-pad) 56px; }
+  .hero { padding: 40px var(--container-pad) 44px; }
   .hero__title { font-size: 1.5rem; }
-  .badge { width: 94px; height: 94px; font-size: .68rem; }
+  .hero__lead { font-size: var(--fs-base); }
+  /* 丸バッジ → 2×2 の角丸チップ。4個目の孤立が消え、高さは約半分になる */
+  .hero__badges { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 320px; margin: 0 auto var(--space-4); }
+  .badge { width: auto; height: auto; padding: 10px 6px; border-radius: var(--radius-sm); font-size: .8rem; line-height: 1.4; }
+  .badge br { display: none; }
+  .btn-group .btn { width: 100%; }   /* 全幅にして親指で外さない */
+  /* 保険バナーを半画面 → 約 1/4 画面に */
+  .insurance-banner { padding: var(--space-3) 0; }
+  .insurance-banner__icon { display: none; }
+  .insurance-banner__title { font-size: var(--fs-md); }
+  .insurance-banner__tel { padding: 10px 24px; }
 
   .reason-grid,
   .clinic-grid,
@@ -850,10 +881,19 @@ body.is-nav-open { overflow: hidden; }
 
   .price-table th,
   .price-table td { padding: 12px 10px; font-size: .88rem; }
+  .price-table th { font-size: .86rem; }   /* 「（約35分）」が括弧内で割れないように */
 
   .final-cta__tel { padding: 16px 32px; font-size: 1.5rem; }
 
   .u-pc-only { display: none; }
+  .u-sp-only { display: inline; }
+}
+
+/* --- Hover（ポインタがある環境だけ。タッチで浮いたまま止まらない） --- */
+@media (hover: hover) {
+  .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-btn-hover); }
+  .card--hover:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+  .final-cta__tel:hover { transform: scale(1.03); }
 }
 
 /* --- Reduced motion --- */
