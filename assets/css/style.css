@@ -33,6 +33,9 @@
   --color-basic:          #00796b;   /* 白文字を載せる帯で 5.3:1 */
   --color-basic-dark:     #00695c;
   --color-basic-bg:       #e6f4f2;
+  --color-beauty:         #c2185b;   /* 美容痩身コース：ローズピンク。白文字を載せる帯で 5.9:1 */
+  --color-beauty-dark:    #ad1457;
+  --color-beauty-bg:      #fdeef3;
   --color-kids:           #7e57c2;   /* 小中学生コース：やさしいパープル */
   --color-kids-dark:      #5e35b1;
   --color-kids-bg:        #f3eefa;
@@ -484,8 +487,9 @@ body.is-nav-open { overflow: hidden; }
 .reason-card__body a { font-weight: bold; color: var(--color-primary); text-decoration: underline; text-underline-offset: 3px; }
 
 /* --- Courses --- */
+/* PC は 2×2。4列だと1枚が約230pxになり、チップや料金の文が読みづらいため */
 .course-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
+  display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 22px;
 }
 /* subgrid で「ヘッダー行」「本文行」の高さを隣のカードと共有し、自動で揃える。
@@ -554,6 +558,12 @@ body.is-nav-open { overflow: hidden; }
   --course-chip-bg:    var(--color-bg-tint);
   --course-chip-color: var(--color-primary-dark);
   --course-accent:     var(--color-primary);
+}
+.course-card--beauty {
+  --course-gradient:   linear-gradient(135deg, var(--color-beauty-dark), var(--color-beauty));
+  --course-chip-bg:    var(--color-beauty-bg);
+  --course-chip-color: var(--color-beauty-dark);
+  --course-accent:     var(--color-beauty);
 }
 .course-card--kids {
   --course-gradient:   linear-gradient(135deg, var(--color-kids-dark), var(--color-kids));
@@ -648,6 +658,7 @@ body.is-nav-open { overflow: hidden; }
 .price-table__cat { font-weight: bold; background: var(--gradient-tint); color: var(--color-primary-dark); }
 .price-table__cat--basic { background: var(--color-basic-bg); color: var(--color-basic-dark); }
 .price-table__cat--accent-warm { background: var(--color-accent-warm-bg); color: var(--color-accent-warm-dark); }
+.price-table__cat--beauty { background: var(--color-beauty-bg); color: var(--color-beauty-dark); }
 .price-table__cat--kids  { background: var(--color-kids-bg);  color: var(--color-kids-dark); }
 
 .price-notes { max-width: var(--container-w-narrow); margin: 14px auto 0; }
